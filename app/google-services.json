@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "103003776986",
+    "project_id": "sportssdbis-4e4a4",
+    "storage_bucket": "sportssdbis-4e4a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103003776986:android:dccb74dfa613ac295302e3",
+        "android_client_info": {
+          "package_name": "com.example.sportssdbis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103003776986-4177068hiast30lsqssk7sl04csru0tl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sportssdbis",
+            "certificate_hash": "6bb9554cdd2462a76ba2325ae222af039c815fc3"
+          }
+        },
+        {
+          "client_id": "103003776986-4s5jo5crbbpmr9tq1kgbgjn1v3vje2uo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0zn199KGca_TAi1ZzUCdAE4GJ9A6YIk8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "103003776986-4s5jo5crbbpmr9tq1kgbgjn1v3vje2uo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
