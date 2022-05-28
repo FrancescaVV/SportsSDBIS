@@ -42,6 +42,13 @@ public class CategoryAddActivity extends AppCompatActivity {
         progressDialog.setTitle("Please wait...");
         progressDialog.setCanceledOnTouchOutside(false);
 
+        //handle click, go back
+        binding.backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         //handle click, begin uploading
         binding.submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
