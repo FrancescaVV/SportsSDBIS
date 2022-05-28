@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/shape_button02.xml" value="0.129" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/shape_button03.xml" value="0.207" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/shape_edittext01.xml" value="0.207" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/shape_toolbar01.xml" value="0.207" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/shape_toolbar02.xml" value="0.207" />
@@ -15,6 +16,7 @@
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/activity_main.xml" value="0.259375" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/activity_register.xml" value="0.259375" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/activity_splash.xml" value="0.259375" />
+        <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/row_category.xml" value="0.259375" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.117" />
       </map>
     </option>
