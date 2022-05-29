@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 
+import com.example.sportssdbis.adapters.AdapterCategory;
 import com.example.sportssdbis.databinding.ActivityDashboardAdminBinding;
+import com.example.sportssdbis.models.ModelCategory;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -39,6 +43,29 @@ public class DashboardAdminActivity extends AppCompatActivity {
         checkUser();
         loadCategories();
 
+        //edit text search
+        binding.searchEt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int count, int after) {
+                try {
+                    adapterCategory.getFilter().filter(s);
+                }
+                catch (Exception e){
+
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable e) {
+
+            }
+        });
+
         //logout
         binding.logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +96,7 @@ public class DashboardAdminActivity extends AppCompatActivity {
         categoryArrayList = new ArrayList<>();
         //get all categories from db
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Categories");
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+        ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 //clear

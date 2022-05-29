@@ -1,4 +1,4 @@
-package com.example.sportssdbis;
+package com.example.sportssdbis.models;
 
 public class ModelCategory {
 

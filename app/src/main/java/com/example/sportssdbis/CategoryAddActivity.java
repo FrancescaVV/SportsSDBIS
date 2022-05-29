@@ -63,7 +63,7 @@ public class CategoryAddActivity extends AppCompatActivity {
         category = binding.categoryEt.getText().toString().trim();
         //not empty
         if(TextUtils.isEmpty(category)){
-            Toast.makeText(this, "Please enter a categoty!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter a category!",Toast.LENGTH_SHORT).show();
         }
         else{
             addCategoryFirebase();
