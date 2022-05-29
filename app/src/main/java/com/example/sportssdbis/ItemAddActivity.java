@@ -74,6 +74,10 @@ public class ItemAddActivity extends AppCompatActivity {
 
     private void validateData() {
         //to add validation here
+        title = binding.titleEt.getText().toString().trim();
+        location = binding.locationEt.getText().toString().trim();
+        description = binding.descriptionEt.getText().toString().trim();
+        category = binding.categoryTv.getText().toString().trim();
         uploadToDb();
     }
     private String title = "", location = "", description="", category="";
@@ -87,11 +91,11 @@ public class ItemAddActivity extends AppCompatActivity {
 
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid", uid);
-        hashMap.put("id", ""+timestamp);
-        hashMap.put("title", ""+title);
-        hashMap.put("location", ""+location);
-        hashMap.put("description", ""+description);
-        hashMap.put("category", ""+category);
+        hashMap.put("id", timestamp);
+        hashMap.put("title", title);
+        hashMap.put("location", location);
+        hashMap.put("description", description);
+        hashMap.put("category", category);
         hashMap.put("timestamp", timestamp);
 
         //set data to db
