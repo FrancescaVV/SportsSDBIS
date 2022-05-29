@@ -55,6 +55,14 @@ public class DashboardAdminActivity extends AppCompatActivity {
                 startActivity(new Intent(DashboardAdminActivity.this, CategoryAddActivity.class));
             }
         });
+
+        //start add item info screen
+        binding.addItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardAdminActivity.this, ItemAddActivity.class));
+            }
+        });
     }
 
     private void loadCategories(){
