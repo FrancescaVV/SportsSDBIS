@@ -8,39 +8,49 @@
     tools:context=".DashboardUserActivity">
     <!--Toolbar-->
     <RelativeLayout
+        android:id="@+id/toolbarRL"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:id="@+id/toolbarRL"
         android:background="@drawable/shape_toolbar02">
 
         <TextView
+            android:id="@+id/titleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/titleTv"
-            android:layout_marginTop="8dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
             android:text="Dashboard User"
-            android:textStyle="bold"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/subTitleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/subTitleTv"
-            android:layout_centerHorizontal="true"
             android:layout_below="@id/titleTv"
+            android:layout_centerHorizontal="true"
             android:text="abc@example.com"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white" />
 
         <ImageButton
+            android:id="@+id/logoutBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/logoutBtn"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_logout_white"
             android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_logout_white" />
+
+        <ImageButton
+            android:id="@+id/bookingsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="false"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_bookings_white" />
     </RelativeLayout>
     <!--Search-->
     <EditText
