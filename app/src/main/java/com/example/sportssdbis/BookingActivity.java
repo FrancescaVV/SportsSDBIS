@@ -87,11 +87,11 @@ public class BookingActivity extends AppCompatActivity {
 
         long timestamp = System.currentTimeMillis();
 
-        String uid = firebaseAuth.getUid();
+        //String uid = firebaseAuth.getUid();
 
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("uid", uid);
-        hashMap.put("id", timestamp);
+        hashMap.put("uid", ""+firebaseAuth.getUid());
+        hashMap.put("id", ""+timestamp);
         hashMap.put("location", location);
         hashMap.put("date", date);
         hashMap.put("hour", hour);
@@ -99,7 +99,8 @@ public class BookingActivity extends AppCompatActivity {
 
         //set data to db
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Bookings");
-        ref.child(uid)
+        //the id is timestamp!!!
+        ref.child(""+timestamp)
                 .setValue(hashMap)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -107,7 +108,6 @@ public class BookingActivity extends AppCompatActivity {
                         //data added to db
                         progressDialog.dismiss();
                         Toast.makeText(BookingActivity.this, "Booking confirmed!", Toast.LENGTH_SHORT).show();
-                        //start user dashboard
                         finish();
                     }
                 })
@@ -161,7 +161,7 @@ public class BookingActivity extends AppCompatActivity {
                 .setItems(locationsArray, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int which) {
-                        String category = locationsArray[which];
+                        String location = locationsArray[which];
                         binding.locationTv.setText(location);
                     }
                 })

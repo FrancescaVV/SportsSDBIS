@@ -18,9 +18,6 @@
             android:name=".LocationDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".ItemDetailActivity"
-            android:exported="false" />
-        <activity
             android:name=".LocationAddActivity"
             android:exported="false" />
         <activity
