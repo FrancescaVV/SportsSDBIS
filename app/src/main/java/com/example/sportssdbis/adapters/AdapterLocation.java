@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sportssdbis.filters.FilterLocation;
 import com.example.sportssdbis.models.ModelLocation;
-import com.example.sportssdbis.databinding.RowCategoryBinding;
+import com.example.sportssdbis.databinding.RowLocationBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -31,7 +31,7 @@ public class AdapterLocation extends RecyclerView.Adapter<AdapterLocation.Holder
     public ArrayList<ModelLocation> locationArrayList, filterList;
 
     //view binding
-    private RowCategoryBinding binding;
+    private RowLocationBinding binding;
 
     private FilterLocation filter;
 
@@ -46,7 +46,7 @@ public class AdapterLocation extends RecyclerView.Adapter<AdapterLocation.Holder
     public HolderLocation onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //bind row_category.xml
 
-        binding = RowCategoryBinding.inflate(LayoutInflater.from(context), parent, false);
+        binding = RowLocationBinding.inflate(LayoutInflater.from(context), parent, false);
         return new HolderLocation(binding.getRoot());
     }
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/back01"
     tools:context=".DashboardUserActivity">
-
+    <!--Toolbar-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
@@ -42,24 +42,44 @@
             android:layout_marginEnd="10dp"
             android:background="@android:color/transparent"/>
     </RelativeLayout>
-
-    <com.google.android.material.tabs.TabLayout
+    <!--Search-->
+    <EditText
+        android:id="@+id/searchEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tabLayout"
         android:layout_below="@id/toolbarRL"
-        android:layout_margin="5dp"
-        android:background="@android:color/transparent"
-        app:tabBackground="@drawable/tab_selector"
-        app:tabIndicatorFullWidth="false"
-        app:tabIndicatorHeight="0dp"
-        app:tabMode="scrollable"
-        app:tabUnboundedRipple="false"/>
+        android:hint="Search"
+        android:textColorHint="@color/gray01"
+        android:drawableStart="@drawable/ic_search_gray"
+        android:padding="10dp"
+        android:background="@color/white"/>
 
-    <androidx.viewpager.widget.ViewPager
+    <!--Categories-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoriesRv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomLl"
+        android:layout_below="@id/searchEt"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/row_location_user" />
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/viewPager"
-        android:layout_below="@id/tabLayout"/>
+        android:id="@+id/bottomLl"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
 
+
+
+    </LinearLayout>
 </RelativeLayout>

@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.sportssdbis.databinding.ActivityCategoryAddBinding;
+import com.example.sportssdbis.databinding.ActivityLocationAddBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,7 +21,7 @@ import java.util.HashMap;
 public class LocationAddActivity extends AppCompatActivity {
 
     //view binding
-    private ActivityCategoryAddBinding binding;
+    private ActivityLocationAddBinding binding;
 
     //firebase auth
     private FirebaseAuth firebaseAuth;
@@ -31,7 +31,7 @@ public class LocationAddActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityCategoryAddBinding.inflate(getLayoutInflater());
+        binding = ActivityLocationAddBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         //init firebase Auth

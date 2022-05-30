@@ -30,7 +30,7 @@ public class DashboardAdminActivity extends AppCompatActivity {
     //firebase auth
     private FirebaseAuth firebaseAuth;
 
-    private ArrayList<ModelLocation> categoryArrayList;
+    private ArrayList<ModelLocation> locationArrayList;
     private AdapterLocation adapterLocation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ public class DashboardAdminActivity extends AppCompatActivity {
         //init firebase auth
         firebaseAuth = FirebaseAuth.getInstance();
         checkUser();
-        loadCategories();
+        loadLocations();
 
         //edit text search
         binding.searchEt.addTextChangedListener(new TextWatcher() {
@@ -92,24 +92,24 @@ public class DashboardAdminActivity extends AppCompatActivity {
         });*/
     }
 
-    private void loadCategories(){
-        categoryArrayList = new ArrayList<>();
+    private void loadLocations(){
+        locationArrayList = new ArrayList<>();
         //get all categories from db
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Categories");
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 //clear
-                categoryArrayList.clear();
+                locationArrayList.clear();
                 for (DataSnapshot ds:snapshot.getChildren()){
                     //get data
                     ModelLocation model = ds.getValue(ModelLocation.class);
 
                     //add to array list
-                    categoryArrayList.add(model);
+                    locationArrayList.add(model);
                 }
 
-                adapterLocation = new AdapterLocation(DashboardAdminActivity.this, categoryArrayList);
+                adapterLocation = new AdapterLocation(DashboardAdminActivity.this, locationArrayList);
 
                 binding.categoriesRv.setAdapter(adapterLocation);
             }
