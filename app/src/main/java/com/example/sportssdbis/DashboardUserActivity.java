@@ -74,12 +74,20 @@ public class DashboardUserActivity extends AppCompatActivity {
             }
         });
 
+        //handle click, start adding categories
+        binding.bookBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardUserActivity.this, BookingActivity.class));
+            }
+        });
+
     }
 
     private void loadLocations(){
         locationArrayList = new ArrayList<>();
         //get all categories from db
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Categories");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Locations");
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

@@ -2,6 +2,7 @@ package com.example.sportssdbis.adapters;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.sportssdbis.filters.FilterLocation;
+import com.example.sportssdbis.LocationDetailsActivity;
+import com.example.sportssdbis.filters.FilterLocationAdmin;
 import com.example.sportssdbis.models.ModelLocation;
 import com.example.sportssdbis.databinding.RowLocationBinding;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -25,7 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class AdapterLocation extends RecyclerView.Adapter<AdapterLocation.HolderLocation> implements Filterable {
+public class AdapterLocationAdmin extends RecyclerView.Adapter<AdapterLocationAdmin.HolderLocation> implements Filterable {
 
     private Context context;
     public ArrayList<ModelLocation> locationArrayList, filterList;
@@ -33,9 +35,9 @@ public class AdapterLocation extends RecyclerView.Adapter<AdapterLocation.Holder
     //view binding
     private RowLocationBinding binding;
 
-    private FilterLocation filter;
+    private FilterLocationAdmin filter;
 
-    public AdapterLocation(Context context, ArrayList<ModelLocation> locationArrayList){
+    public AdapterLocationAdmin(Context context, ArrayList<ModelLocation> locationArrayList){
         this.context = context;
         this.locationArrayList = locationArrayList;
         this.filterList = locationArrayList;
@@ -93,25 +95,21 @@ public class AdapterLocation extends RecyclerView.Adapter<AdapterLocation.Holder
             }
         });
 
-        /*
-        //item click, go to item page
+       //go to location detail page on click
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, ItemListAdminActivity.class);
-                intent.putExtra("categoryId", id);
-                intent.putExtra("categoryTitle", category);
+                Intent intent = new Intent(context, LocationDetailsActivity.class);
+                intent.putExtra("locationId", id);
                 context.startActivity(intent);
             }
         });
-
-         */
     }
 
     private void deleteLocation(ModelLocation model, HolderLocation holder) {
         String id = model.getId();
 
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Categories");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Locations");
         ref.child(id)
                 .removeValue()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -136,7 +134,7 @@ public class AdapterLocation extends RecyclerView.Adapter<AdapterLocation.Holder
     @Override
     public Filter getFilter() {
         if(filter == null){
-            filter = new FilterLocation(filterList, this);
+            filter = new FilterLocationAdmin(filterList, this);
         }
         return filter;
     }

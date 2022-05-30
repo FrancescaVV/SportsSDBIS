@@ -2,7 +2,6 @@ package com.example.sportssdbis.filters;
 
 import android.widget.Filter;
 
-import com.example.sportssdbis.adapters.AdapterLocation;
 import com.example.sportssdbis.adapters.AdapterLocationUser;
 import com.example.sportssdbis.models.ModelLocation;
 

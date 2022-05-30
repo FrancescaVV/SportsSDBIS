@@ -67,7 +67,7 @@ public class LocationAddActivity extends AppCompatActivity {
         description = binding.categoryDescEt.getText().toString().trim();
         //not empty
         if(TextUtils.isEmpty(title)){
-            Toast.makeText(this, "Please enter a category!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter a location!",Toast.LENGTH_SHORT).show();
         }
         else{
             addCategoryFirebase();
@@ -76,7 +76,7 @@ public class LocationAddActivity extends AppCompatActivity {
 
     private void addCategoryFirebase(){
         //show progress
-        progressDialog.setMessage("Adding category...");
+        progressDialog.setMessage("Adding location...");
         progressDialog.show();
 
         //get timestamp
@@ -94,14 +94,15 @@ public class LocationAddActivity extends AppCompatActivity {
         hashMap.put("uid", ""+firebaseAuth.getUid());
 
         //add to firebase db
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Categories");
+        //DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Categories");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Locations");
         ref.child(""+timestamp)
                 .setValue(hashMap)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
                         progressDialog.dismiss();
-                        Toast.makeText(LocationAddActivity.this, "Category added successfully!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LocationAddActivity.this, "Location added successfully!", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

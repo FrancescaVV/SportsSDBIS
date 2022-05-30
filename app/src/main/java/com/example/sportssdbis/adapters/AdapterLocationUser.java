@@ -1,7 +1,7 @@
 package com.example.sportssdbis.adapters;
 
 import android.content.Context;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,20 +9,14 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.sportssdbis.databinding.RowLocationBinding;
+import com.example.sportssdbis.BookingActivity;
 import com.example.sportssdbis.databinding.RowLocationUserBinding;
 import com.example.sportssdbis.filters.FilterLocationUser;
 import com.example.sportssdbis.models.ModelLocation;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -71,6 +65,18 @@ public class AdapterLocationUser extends RecyclerView.Adapter<AdapterLocationUse
         holder.descriptionTv.setText(description);
         holder.scheduleTv.setText(schedule);
         holder.locationTv.setText(location);
+
+
+        //open booking
+        //go to location detail page on click
+        holder.bookBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, BookingActivity.class);
+                intent.putExtra("locationId", id);
+                context.startActivity(intent);
+            }
+        });
 
     }
 

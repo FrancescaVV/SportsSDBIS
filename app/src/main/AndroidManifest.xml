@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
         <activity
+            android:name=".BookingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LocationDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ItemDetailActivity"
             android:exported="false" />
         <activity

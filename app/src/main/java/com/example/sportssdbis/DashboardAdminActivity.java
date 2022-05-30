@@ -9,7 +9,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 
-import com.example.sportssdbis.adapters.AdapterLocation;
+import com.example.sportssdbis.adapters.AdapterLocationAdmin;
 import com.example.sportssdbis.models.ModelLocation;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,7 +31,7 @@ public class DashboardAdminActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
 
     private ArrayList<ModelLocation> locationArrayList;
-    private AdapterLocation adapterLocation;
+    private AdapterLocationAdmin adapterLocationAdmin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +53,7 @@ public class DashboardAdminActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int count, int after) {
                 try {
-                    adapterLocation.getFilter().filter(s);
+                    adapterLocationAdmin.getFilter().filter(s);
                 }
                 catch (Exception e){
 
@@ -95,7 +95,8 @@ public class DashboardAdminActivity extends AppCompatActivity {
     private void loadLocations(){
         locationArrayList = new ArrayList<>();
         //get all categories from db
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Categories");
+        //DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Categories");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Locations");
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -109,9 +110,9 @@ public class DashboardAdminActivity extends AppCompatActivity {
                     locationArrayList.add(model);
                 }
 
-                adapterLocation = new AdapterLocation(DashboardAdminActivity.this, locationArrayList);
+                adapterLocationAdmin = new AdapterLocationAdmin(DashboardAdminActivity.this, locationArrayList);
 
-                binding.categoriesRv.setAdapter(adapterLocation);
+                binding.categoriesRv.setAdapter(adapterLocationAdmin);
             }
 
             @Override

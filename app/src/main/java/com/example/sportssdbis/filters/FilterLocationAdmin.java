@@ -2,20 +2,20 @@ package com.example.sportssdbis.filters;
 
 import android.widget.Filter;
 
-import com.example.sportssdbis.adapters.AdapterLocation;
+import com.example.sportssdbis.adapters.AdapterLocationAdmin;
 import com.example.sportssdbis.models.ModelLocation;
 
 import java.util.ArrayList;
 
-public class FilterLocation extends Filter {
+public class FilterLocationAdmin extends Filter {
 
     ArrayList<ModelLocation> filterList;
 
-    AdapterLocation adapterLocation;
+    AdapterLocationAdmin adapterLocationAdmin;
 
-    public FilterLocation(ArrayList<ModelLocation> filterList, AdapterLocation adapterLocation) {
+    public FilterLocationAdmin(ArrayList<ModelLocation> filterList, AdapterLocationAdmin adapterLocationAdmin) {
         this.filterList = filterList;
-        this.adapterLocation = adapterLocation;
+        this.adapterLocationAdmin = adapterLocationAdmin;
     }
 
 
@@ -44,7 +44,7 @@ public class FilterLocation extends Filter {
 
     @Override
     protected void publishResults(CharSequence constraint, FilterResults results) {
-        adapterLocation.locationArrayList = (ArrayList<ModelLocation>)results.values;
-        adapterLocation.notifyDataSetChanged();
+        adapterLocationAdmin.locationArrayList = (ArrayList<ModelLocation>)results.values;
+        adapterLocationAdmin.notifyDataSetChanged();
     }
 }
