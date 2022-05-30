@@ -15,8 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.sportssdbis.filters.FilterCategory;
-import com.example.sportssdbis.models.ModelCategory;
+import com.example.sportssdbis.filters.FilterLocation;
+import com.example.sportssdbis.models.ModelLocation;
 import com.example.sportssdbis.databinding.RowCategoryBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -25,56 +25,62 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.HolderCategory> implements Filterable {
+public class AdapterLocation extends RecyclerView.Adapter<AdapterLocation.HolderLocation> implements Filterable {
 
     private Context context;
-    public ArrayList<ModelCategory> categoryArrayList, filterList;
+    public ArrayList<ModelLocation> locationArrayList, filterList;
 
     //view binding
     private RowCategoryBinding binding;
 
-    private FilterCategory filter;
+    private FilterLocation filter;
 
-    public AdapterCategory(Context context, ArrayList<ModelCategory> categoryArrayList){
+    public AdapterLocation(Context context, ArrayList<ModelLocation> locationArrayList){
         this.context = context;
-        this.categoryArrayList = categoryArrayList;
-        this.filterList = categoryArrayList;
+        this.locationArrayList = locationArrayList;
+        this.filterList = locationArrayList;
     }
 
     @NonNull
     @Override
-    public HolderCategory onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public HolderLocation onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //bind row_category.xml
 
         binding = RowCategoryBinding.inflate(LayoutInflater.from(context), parent, false);
-        return new HolderCategory(binding.getRoot());
+        return new HolderLocation(binding.getRoot());
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdapterCategory.HolderCategory holder, int position) {
+    public void onBindViewHolder(@NonNull HolderLocation holder, int position) {
 
         //get data
-        ModelCategory model = categoryArrayList.get(position);
+        ModelLocation model = locationArrayList.get(position);
         String id = model.getId();
-        String category = model.getCategory();
+        String title = model.getTitle();
+        String location = model.getLocation();
+        String schedule = model.getSchedule();
+        String description = model.getDescription();
         String uid = model.getUid();
         long timestamp = model.getTimestamp();
 
         //set data
 
-        holder.categoryTv.setText(category);
+        holder.titleTv.setText(title);
+        holder.descriptionTv.setText(description);
+        holder.scheduleTv.setText(schedule);
+        holder.locationTv.setText(location);
         holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //alert to confirm
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle("Delete")
-                        .setMessage("Are you sure you want to DELETE this category?")
+                        .setMessage("Are you sure you want to DELETE this location?")
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 Toast.makeText(context, "Deleting...", Toast.LENGTH_SHORT).show();
-                                deleteCategory(model, holder);
+                                deleteLocation(model, holder);
                             }
                         })
                         .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -86,9 +92,23 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.Holder
                         .show();
             }
         });
+
+        /*
+        //item click, go to item page
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ItemListAdminActivity.class);
+                intent.putExtra("categoryId", id);
+                intent.putExtra("categoryTitle", category);
+                context.startActivity(intent);
+            }
+        });
+
+         */
     }
 
-    private void deleteCategory(ModelCategory model, HolderCategory holder) {
+    private void deleteLocation(ModelLocation model, HolderLocation holder) {
         String id = model.getId();
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Categories");
@@ -110,25 +130,28 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.Holder
 
     @Override
     public int getItemCount() {
-        return categoryArrayList.size() ;
+        return locationArrayList.size() ;
     }
 
     @Override
     public Filter getFilter() {
         if(filter == null){
-            filter = new FilterCategory(filterList, this);
+            filter = new FilterLocation(filterList, this);
         }
         return filter;
     }
 
-    class HolderCategory extends RecyclerView.ViewHolder{
-        TextView categoryTv;
+    class HolderLocation extends RecyclerView.ViewHolder{
+        TextView titleTv, descriptionTv, locationTv, scheduleTv;
         ImageButton deleteBtn;
-        public HolderCategory(@NonNull View itemView){
+        public HolderLocation(@NonNull View itemView){
             super(itemView);
 
             //init ui views
-            categoryTv = binding.categoryTv;
+            titleTv = binding.titleTv;
+            locationTv = binding.locationTv;
+            scheduleTv = binding.scheduleTv;
+            descriptionTv = binding.descriptionTv;
             deleteBtn = binding.deleteBtn;
         }
     }

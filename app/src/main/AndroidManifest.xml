@@ -12,13 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
         <activity
-            android:name=".ItemListAdminActivity"
+            android:name=".ItemDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ItemAddActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CategoryAddActivity"
+            android:name=".LocationAddActivity"
             android:exported="false" />
         <activity
             android:name=".DashboardAdminActivity"

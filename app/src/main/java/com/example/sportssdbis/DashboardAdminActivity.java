@@ -9,9 +9,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 
-import com.example.sportssdbis.adapters.AdapterCategory;
-import com.example.sportssdbis.databinding.ActivityDashboardAdminBinding;
-import com.example.sportssdbis.models.ModelCategory;
+import com.example.sportssdbis.adapters.AdapterLocation;
+import com.example.sportssdbis.models.ModelLocation;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.example.sportssdbis.databinding.ActivityDashboardAdminBinding;
 
 import java.util.ArrayList;
 
@@ -30,8 +30,8 @@ public class DashboardAdminActivity extends AppCompatActivity {
     //firebase auth
     private FirebaseAuth firebaseAuth;
 
-    private ArrayList<ModelCategory> categoryArrayList;
-    private AdapterCategory adapterCategory;
+    private ArrayList<ModelLocation> categoryArrayList;
+    private AdapterLocation adapterLocation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +53,7 @@ public class DashboardAdminActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int count, int after) {
                 try {
-                    adapterCategory.getFilter().filter(s);
+                    adapterLocation.getFilter().filter(s);
                 }
                 catch (Exception e){
 
@@ -79,17 +79,17 @@ public class DashboardAdminActivity extends AppCompatActivity {
         binding.addCategoryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DashboardAdminActivity.this, CategoryAddActivity.class));
+                startActivity(new Intent(DashboardAdminActivity.this, LocationAddActivity.class));
             }
         });
 
-        //start add item info screen
+       /* //start add item info screen
         binding.addItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(DashboardAdminActivity.this, ItemAddActivity.class));
             }
-        });
+        });*/
     }
 
     private void loadCategories(){
@@ -103,15 +103,15 @@ public class DashboardAdminActivity extends AppCompatActivity {
                 categoryArrayList.clear();
                 for (DataSnapshot ds:snapshot.getChildren()){
                     //get data
-                    ModelCategory model = ds.getValue(ModelCategory.class);
+                    ModelLocation model = ds.getValue(ModelLocation.class);
 
                     //add to array list
                     categoryArrayList.add(model);
                 }
 
-                adapterCategory = new AdapterCategory(DashboardAdminActivity.this, categoryArrayList);
+                adapterLocation = new AdapterLocation(DashboardAdminActivity.this, categoryArrayList);
 
-                binding.categoriesRv.setAdapter(adapterCategory);
+                binding.categoriesRv.setAdapter(adapterLocation);
             }
 
             @Override

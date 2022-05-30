@@ -66,7 +66,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/row_category" />
+        tools:listitem="@layout/row_location" />
 
 
     <LinearLayout
@@ -85,7 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/addCategoryBtn"
-            android:text="+ Add Category"
+            android:text="+ Add new location"
             android:layout_weight="1"
             android:layout_marginEnd="10dp"
             android:background="@drawable/shape_button01"
@@ -93,15 +93,6 @@
             android:textAllCaps="false"
             android:textColor="@color/white"/>
 
-        <!--Add gym, sports field or recreation ground-->
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/addItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_add_item_white"
-            app:tint="@color/white"
-            app:fabCustomSize="50dp"
-            app:backgroundTint="@color/purple_500"/>
 
     </LinearLayout>
 </RelativeLayout>

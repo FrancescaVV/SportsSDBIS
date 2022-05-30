@@ -2,21 +2,20 @@ package com.example.sportssdbis.filters;
 
 import android.widget.Filter;
 
-import com.example.sportssdbis.adapters.AdapterCategory;
-import com.example.sportssdbis.models.ModelCategory;
+import com.example.sportssdbis.adapters.AdapterLocation;
+import com.example.sportssdbis.models.ModelLocation;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
-public class FilterCategory extends Filter {
+public class FilterLocation extends Filter {
 
-    ArrayList<ModelCategory> filterList;
+    ArrayList<ModelLocation> filterList;
 
-    AdapterCategory adapterCategory;
+    AdapterLocation adapterLocation;
 
-    public FilterCategory(ArrayList<ModelCategory> filterList, AdapterCategory adapterCategory) {
+    public FilterLocation(ArrayList<ModelLocation> filterList, AdapterLocation adapterLocation) {
         this.filterList = filterList;
-        this.adapterCategory = adapterCategory;
+        this.adapterLocation = adapterLocation;
     }
 
 
@@ -25,10 +24,10 @@ public class FilterCategory extends Filter {
         FilterResults results = new FilterResults();
         if(constraint != null && constraint.length() > 0){
             constraint = constraint.toString().toUpperCase();
-            ArrayList<ModelCategory> filteredModels = new ArrayList<>();
+            ArrayList<ModelLocation> filteredModels = new ArrayList<>();
 
             for(int i = 0; i< filterList.size(); i++){
-                if(filterList.get(i).getCategory().toUpperCase().contains(constraint)){
+                if(filterList.get(i).getTitle().toUpperCase().contains(constraint)){
                     filteredModels.add(filterList.get(i));
                 }
             }
@@ -45,7 +44,7 @@ public class FilterCategory extends Filter {
 
     @Override
     protected void publishResults(CharSequence constraint, FilterResults results) {
-        adapterCategory.categoryArrayList = (ArrayList<ModelCategory>)results.values;
-        adapterCategory.notifyDataSetChanged();
+        adapterLocation.locationArrayList = (ArrayList<ModelLocation>)results.values;
+        adapterLocation.notifyDataSetChanged();
     }
 }

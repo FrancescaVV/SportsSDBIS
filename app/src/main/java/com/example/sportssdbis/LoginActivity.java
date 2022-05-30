@@ -1,6 +1,5 @@
 package com.example.sportssdbis;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;

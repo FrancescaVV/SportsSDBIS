@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class CategoryAddActivity extends AppCompatActivity {
+public class LocationAddActivity extends AppCompatActivity {
 
     //view binding
     private ActivityCategoryAddBinding binding;
@@ -57,12 +57,16 @@ public class CategoryAddActivity extends AppCompatActivity {
             }
         });
     }
-    private String category="";
+    private String title="", location="", schedule="", description="";
     private void validateData(){
         //get data
-        category = binding.categoryEt.getText().toString().trim();
+        title = binding.categoryEt.getText().toString().trim();
+        //
+        location = binding.categoryLocEt.getText().toString().trim();
+        schedule = binding.categoryScheduleEt.getText().toString().trim();
+        description = binding.categoryDescEt.getText().toString().trim();
         //not empty
-        if(TextUtils.isEmpty(category)){
+        if(TextUtils.isEmpty(title)){
             Toast.makeText(this, "Please enter a category!",Toast.LENGTH_SHORT).show();
         }
         else{
@@ -81,8 +85,12 @@ public class CategoryAddActivity extends AppCompatActivity {
         //setup info to add in firebase db
         HashMap<String,Object> hashMap = new HashMap<>();
         hashMap.put("id", ""+timestamp);
-        hashMap.put("category", ""+category);
+        hashMap.put("title", ""+title);
         hashMap.put("timestamp", timestamp);
+        //
+        hashMap.put("location", location);
+        hashMap.put("schedule", schedule);
+        hashMap.put("description", description);
         hashMap.put("uid", ""+firebaseAuth.getUid());
 
         //add to firebase db
@@ -93,14 +101,14 @@ public class CategoryAddActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
                         progressDialog.dismiss();
-                        Toast.makeText(CategoryAddActivity.this, "Category added successfully!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LocationAddActivity.this, "Category added successfully!", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         progressDialog.dismiss();
-                        Toast.makeText(CategoryAddActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LocationAddActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }

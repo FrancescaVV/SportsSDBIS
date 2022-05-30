@@ -2,18 +2,13 @@ package com.example.sportssdbis;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-
-import com.example.sportssdbis.databinding.ActivityDashboardUserBinding;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
 public class DashboardUserActivity extends AppCompatActivity {
+/*
+    public ArrayList<ModelCategory> categoryArrayList;
 
     //view binding
     private ActivityDashboardUserBinding binding;
+    public ViewPagerAdapter viewPagerAdapter;
 
     //firebase auth
     private FirebaseAuth firebaseAuth;
@@ -27,6 +22,8 @@ public class DashboardUserActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         checkUser();
 
+        setupViewPagerAdapter(binding.viewPager);
+        binding.tabLayout.setupWithViewPager(binding.viewPager);
         //logout
         binding.logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +33,90 @@ public class DashboardUserActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void setupViewPagerAdapter(ViewPager viewPager){
+
+        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, this);
+
+        categoryArrayList = new ArrayList<>();
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Categories");
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                categoryArrayList.clear();
+
+                ModelCategory modelAll = new ModelCategory("01", "All", "",1);
+
+                categoryArrayList.add(modelAll);
+
+                viewPagerAdapter.addFragment(ItemUserFragment.newInstance(
+                        ""+modelAll.getId(),
+                        ""+modelAll.getCategory(),
+                        ""+modelAll.getUid()
+                ), modelAll.getCategory());
+
+                //refresh list
+                viewPagerAdapter.notifyDataSetChanged();
+
+                //load from firebase
+                for(DataSnapshot ds:snapshot.getChildren()){
+                    ModelCategory model = ds.getValue(ModelCategory.class);
+
+                    categoryArrayList.add(model);
+
+                    viewPagerAdapter.addFragment(ItemUserFragment.newInstance(
+                            ""+model.getId(),
+                            ""+model.getCategory(),
+                            ""+model.getUid()), model.getCategory());
+
+                    viewPagerAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        viewPager.setAdapter(viewPagerAdapter);
+    }
+
+    public class ViewPagerAdapter extends FragmentPagerAdapter{
+
+        private ArrayList<ItemUserFragment> fragmentList = new ArrayList<>();
+
+        private ArrayList<String> fragmentTitleList = new ArrayList<>();
+
+        private Context context;
+
+        public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior, Context context) {
+            super(fm, behavior);
+            this.context = context;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return fragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return fragmentList.size();
+        }
+
+        private void addFragment(ItemUserFragment fragment, String title){
+            fragmentList.add(fragment);
+            fragmentTitleList.add(title);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position){
+            return fragmentTitleList.get(position);
+        }
+    }
+
     private void checkUser() {
         //get current user
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
@@ -51,4 +132,6 @@ public class DashboardUserActivity extends AppCompatActivity {
             binding.subTitleTv.setText(email);
         }
     }
+*/
+
 }
