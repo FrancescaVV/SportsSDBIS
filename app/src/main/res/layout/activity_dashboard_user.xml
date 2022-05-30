@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="false"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="10dp"
+            android:layout_marginLeft="10dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_bookings_white" />
     </RelativeLayout>
