@@ -5,138 +5,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BookingActivity">
-
-
     <!--toolbar-->
-    <RelativeLayout
-        android:id="@+id/toolbarRL"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="@drawable/shape_toolbar01">
 
-        <!--back button-->
-        <ImageButton
-            android:id="@+id/backBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@android:color/transparent"
-            android:padding="5dp"
-            android:src="@drawable/ic_back_white" />
-
-        <!--icon image-->
-        <ImageButton
-            android:id="@+id/iconIv"
-            android:layout_width="143dp"
-            android:layout_height="127dp"
-            android:layout_below="@id/backBtn"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="-3dp"
-            android:src="@drawable/logo" />
-
-        <!--title-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/iconIv"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Book this location!"
-            android:textColor="@color/white"
-            android:textSize="28sp"/>
-
-    </RelativeLayout>
-    <!--input title-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/titleTil"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="225dp">
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:title="Booking"
+        app:titleTextColor="@android:color/white"></androidx.appcompat.widget.Toolbar>
 
-        <TextView
-            android:id="@+id/locationTv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="30dp"
-            android:background="@drawable/shape_edittext01"
-            android:drawableStart="@drawable/ic_category_gray"
-            android:drawableEnd="@drawable/ic_down_gray"
-            android:drawablePadding="10dp"
-            android:gravity="center_vertical"
-            android:hint="Location?"
-            android:padding="10dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/gray01"
-            android:textSize="16sp" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <!-- Layout for content is here. This can be a RelativeLayout  -->
 
-    <!--input location-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/in_date"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:id="@+id/dateTil"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/titleTil">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="82dp"
+        android:inputType="none"
+        android:focusable="false"
+        />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/dateEt"
-            android:background="@drawable/shape_edittext01"
-            android:padding="10dp"
-            android:hint="On what date?"
-            android:inputType="textPersonName|textCapWords"
-            android:drawablePadding="10dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/gray01"
-            android:textSize="16sp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <!--input description-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btn_date"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/hourTil"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/dateTil"
-        android:textSize="16sp">
+        android:layout_alignBottom="@+id/in_date"
+        android:layout_toEndOf="@+id/in_date"
+        android:layout_toRightOf="@+id/in_date"
+        android:text="SELECT DATE" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/hourEt"
-            android:background="@drawable/shape_edittext01"
-            android:padding="10dp"
-            android:hint="At which time?"
-            android:inputType="textMultiLine|textCapSentences"
-            android:drawablePadding="10dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/gray01"
-            android:textSize="16sp"/>
-    </com.google.android.material.textfield.TextInputLayout>
+    <EditText
+        android:id="@+id/in_time"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/in_date"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:inputType="none"
+        android:focusable="false"
+        />
 
+    <Button
+        android:id="@+id/btn_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_date"
+        android:layout_alignStart="@+id/btn_date"
+        android:layout_alignLeft="@+id/btn_date"
+        android:text="SELECT TIME" />
 
-
-    <!--button upload-->
     <Button
         android:id="@+id/submitBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/hourTil"
+        android:layout_below="@id/btn_time"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:text="Confirm!"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        tools:ignore="UnknownId" />
 
 </RelativeLayout>

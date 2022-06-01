@@ -3,38 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/ic_add_item_white.xml" value="0.17" />
-        <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/ic_back_white.xml" value="0.17" />
-        <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/shape_button01.xml" value="0.17" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/shape_button02.xml" value="0.129" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/shape_button03.xml" value="0.207" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/shape_edittext01.xml" value="0.207" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/shape_toolbar01.xml" value="0.207" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/shape_toolbar02.xml" value="0.207" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/shate_button01.xml" value="0.129" />
-        <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/tab_background_selected.xml" value="0.224" />
-        <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/tab_background_unselected.xml" value="0.224" />
-        <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/tab_selector.xml" value="0.224" />
-        <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/activity_booking.xml" value="0.259375" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/activity_category_add.xml" value="0.259375" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/activity_dashboard_admin.xml" value="0.259375" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/activity_dashboard_user.xml" value="0.259375" />
-        <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/activity_item_add.xml" value="0.2" />
-        <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/activity_item_detail.xml" value="0.259375" />
-        <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/activity_item_list_admin.xml" value="0.259375" />
-        <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/activity_location_add.xml" value="0.259375" />
-        <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/activity_location_details.xml" value="0.259375" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/activity_main.xml" value="0.259375" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/activity_register.xml" value="0.259375" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/activity_splash.xml" value="0.259375" />
-        <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/fragment_item_user.xml" value="0.259375" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/row_category.xml" value="0.259375" />
-        <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/row_item_admin.xml" value="0.259375" />
-        <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/row_item_user.xml" value="0.259375" />
-        <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/row_location.xml" value="0.259375" />
-        <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/layout/row_location_user.xml" value="0.259375" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.117" />
+        <entry key="app/src/main/res/drawable/shape_toolbar02.xml" value="0.109" />
+        <entry key="app/src/main/res/layout/activity_booking.xml" value="0.17443351859769132" />
+        <entry key="app/src/main/res/layout/activity_dashboard_admin.xml" value="0.36666666666666664" />
+        <entry key="app/src/main/res/layout/activity_dashboard_user.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.27239583333333334" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.1" />
       </map>
     </option>
   </component>
@@ -43,5 +32,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>
