@@ -1,16 +1,19 @@
 package com.example.sportssdbis;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.example.sportssdbis.adapters.AdapterBooking;
 import com.example.sportssdbis.adapters.AdapterLocationUser;
+import com.example.sportssdbis.databinding.ActivityDashboardBookingBinding;
 import com.example.sportssdbis.databinding.ActivityDashboardUserBinding;
+import com.example.sportssdbis.models.ModelBooking;
 import com.example.sportssdbis.models.ModelLocation;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,25 +25,26 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class DashboardUserActivity extends AppCompatActivity {
+public class DashboardBooking extends AppCompatActivity {
+
     //view binding
-    private ActivityDashboardUserBinding binding;
+    private ActivityDashboardBookingBinding binding;
 
     //firebase auth
     private FirebaseAuth firebaseAuth;
 
-    private ArrayList<ModelLocation> locationArrayList;
-    private AdapterLocationUser adapterLocation;
+    private ArrayList<ModelBooking> bookingArrayList;
+    private AdapterBooking adapterBooking;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityDashboardUserBinding.inflate(getLayoutInflater());
+        binding = ActivityDashboardBookingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         //init firebase auth
         firebaseAuth = FirebaseAuth.getInstance();
         checkUser();
-        loadLocations();
+        loadBookings();
 
         //edit text search
         binding.searchEt.addTextChangedListener(new TextWatcher() {
@@ -52,7 +56,7 @@ public class DashboardUserActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int count, int after) {
                 try {
-                    adapterLocation.getFilter().filter(s);
+                    adapterBooking.getFilter().filter(s);
                 }
                 catch (Exception e){
 
@@ -74,45 +78,36 @@ public class DashboardUserActivity extends AppCompatActivity {
             }
         });
 
-        //logout
-        binding.bookBtn.setOnClickListener(new View.OnClickListener() {
+        //handle click, back
+        binding.backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DashboardUserActivity.this, BookingActivity.class));
-            }
-        });
-
-
-        //handle click, go to bookings
-        binding.bookingsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DashboardUserActivity.this, DashboardBooking.class));
+                onBackPressed();
             }
         });
 
     }
 
-    private void loadLocations(){
-        locationArrayList = new ArrayList<>();
+    private void loadBookings(){
+        bookingArrayList = new ArrayList<>();
         //get all categories from db
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Locations");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Bookings");
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 //clear
-                locationArrayList.clear();
+                bookingArrayList.clear();
                 for (DataSnapshot ds:snapshot.getChildren()){
                     //get data
-                    ModelLocation model = ds.getValue(ModelLocation.class);
+                    ModelBooking model = ds.getValue(ModelBooking.class);
 
                     //add to array list
-                    locationArrayList.add(model);
+                    bookingArrayList.add(model);
                 }
 
-                adapterLocation = new AdapterLocationUser(DashboardUserActivity.this, locationArrayList);
+                adapterBooking = new AdapterBooking(DashboardBooking.this, bookingArrayList);
 
-                binding.categoriesRv.setAdapter(adapterLocation);
+                binding.categoriesRv.setAdapter(adapterBooking);
             }
 
             @Override
