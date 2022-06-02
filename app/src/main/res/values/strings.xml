@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">SportsSDBIS</string>
     <string name="new_user_sign_up">New user? <b>Sign up!</b></string>
+    <string name="mapbox_access_token">pk.eyJ1IjoiamRtYXJ0aW5zIiwiYSI6ImNsM3IyMHV2OTBodngzY3FwOWNkczFoazcifQ.tucU9wxbjJ_3JsKnB-5KaQ</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

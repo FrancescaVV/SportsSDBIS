@@ -51,7 +51,12 @@
             android:layout_marginLeft="10dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_bookings_white" />
+            android:background="@android:color/transparent"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:src="@drawable/ic_logout_white" />
     </RelativeLayout>
+
     <!--Search-->
     <EditText
         android:id="@+id/searchEt"

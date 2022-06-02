@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../../layout/custom_preview.xml" value="0.25052083333333336" />
+        <entry key="../../../../.gradle/caches/transforms-3/6d345163c99edda0070e117bd2bb135e/transformed/maps-locationcomponent-10.5.0/res/drawable/mapbox_rounded_corner.xml" value="0.1615" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/shape_button02.xml" value="0.129" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/shape_button03.xml" value="0.207" />
         <entry key="..\:/Users/acer/AndroidStudioProjects/SportsSDBIS/app/src/main/res/drawable/shape_edittext01.xml" value="0.207" />
@@ -22,8 +24,15 @@
         <entry key="app/src/main/res/layout/activity_booking.xml" value="0.17443351859769132" />
         <entry key="app/src/main/res/layout/activity_dashboard_admin.xml" value="0.36666666666666664" />
         <entry key="app/src/main/res/layout/activity_dashboard_user.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_location_add.xml" value="0.22395833333333334" />
+        <entry key="app/src/main/res/layout/activity_location_details.xml" value="0.22395833333333334" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.27239583333333334" />
-        <entry key="app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22395833333333334" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.7537963867187502" />
+        <entry key="app/src/main/res/layout/activity_select_geolocation.xml" value="0.36666666666666664" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.22395833333333334" />
+        <entry key="app/src/main/res/layout/row_location.xml" value="0.22395833333333334" />
+        <entry key="app/src/main/res/layout/row_location_user.xml" value="0.22395833333333334" />
       </map>
     </option>
   </component>
