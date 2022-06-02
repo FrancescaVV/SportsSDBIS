@@ -91,6 +91,15 @@ public class DashboardUserActivity extends AppCompatActivity {
             }
         });
 
+
+        //handle click, go to bookings
+        binding.mapsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardUserActivity.this, MapsActivity.class));
+            }
+        });
+
     }
 
     private void loadLocations(){
